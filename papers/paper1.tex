@@ -1,0 +1,49 @@
+% !TeX root = ../main.tex
+\cleardoublepage
+\pagestyle{plain}
+\refstepcounter{dummy}
+\label{pap:paper1}
+{\tikzexternaldisable 
+    \begin{tikzpicture}[overlay,remember picture]
+    \node[fill=black, rectangle, text width=4cm,
+    text height=1.5em,anchor=north east, inner sep=12pt] 
+    at ($ (current page.north east) + (-0cm,-3cm) $) 
+    {\textcolor{white}{\HUGE Paper I}};
+\end{tikzpicture}}
+\vfill
+\noindent
+\LARGE \paperone
+\vspace{0.5cm}
+
+\normalsize\noindent
+\authorone
+
+\vspace{2cm}
+
+\cleardoublepage % the shim needs to appear on a righthandside page and the lefthandside page immediately following needs to be blank
+
+
+% \AddEverypageHook{%
+% \ifodd\value{page} %
+%  \tikz[remember picture, overlay]
+%     {
+%     \fill[fill=gray!50] 
+%     ($(current page.north east)+(0.2,-\number\value{chapter}*2+1)$) rectangle ($(current page.north east)+(-1,-\number\value{chapter}*2-1)$);
+%     \fill[fill=gray!50] 
+%     ($(current page.north east)+(-0.3,-\number\value{chapter}*2+1)$) rectangle ($(current page.north east)+(-1,-\number\value{chapter}*2-1)$)
+%     node[pos=.5,text=white,align=center,rotate=90]{Paper \thechapter};
+%     }
+%  \else
+%  \tikz[remember picture, overlay]
+%     {
+%     \fill[fill=gray!50] 
+%     ($(current page.north west)+(-0.2,-\number\value{chapter}*2+1)$) rectangle ($(current page.north west)+(1,-\number\value{chapter}*2-1)$);
+%     \fill[fill=gray!50] 
+%     ($(current page.north west)+(0.3,-\number\value{chapter}*2+1)$) rectangle ($(current page.north west)+(1,-\number\value{chapter}*2-1)$) 
+%     node[pos=.5,text=white,align=center,rotate=90]{Paper \thechapter};
+%     }
+% \fi}
+
+
+
+\includepdf[pages=1-,width=1.0\textwidth,pagecommand=\makeoddfoot{miunlic}{}{}{\small page | \thepage}, templatesize={169mm}{239mm}, frame=false, scale=1, trim=29mm 5mm 29mm 10mm, offset=-5 0]{papers/paper1.pdf} %note: I don't know why \makeoddfoot creates page numbers for both even and odd pages, but it seems to work

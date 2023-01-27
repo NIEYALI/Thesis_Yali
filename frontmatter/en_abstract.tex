@@ -1,0 +1,16 @@
+% !TeX root = ../main.tex
+% !TeX spellcheck = en_GB
+%: Abstract english
+\begin{abstract}
+%\textbf{Background:}
+ Melanoma is a skin cancer that tends to be deadly. The incidence of melanoma is currently at the highest level ever recorded in Europe, North America and Oceania. The survival rate can be significantly increased if the skin lesions are identified in dermoscopic images at an early stage. On the other hand, the classification of skin lesions is incredibly challenging. Skin lesion classification using deep learning approaches has provided better results in classifying skin diseases than those of dermatologists, which is lifesaving in terms of diagnosis. 
+
+%\textbf{Objective:} 
+This thesis presents a review of our research articles on classifying skin lesions using deep learning. Regarding the research, I has four goals concerning research frontier work, small datasets, data imbalance, and improving accuracy. In this thesis, I discuss how deep learning can classify skin diseases, summarizing the problems that remain at this stage and the outlook for the future.
+
+%\textbf{Methods:}
+For the above goals,  I first studied and summarized more than 200 high-quality articles published over five years. I then used three versions of You only look once (Yolo) to detect skin lesions. Although there were only 200 pictures, the test was very effective for detection. I applied the five-fold algorithm to Vgg-16, trained five models, and fused them to solve the small data problem. To improve the accuracy, I also tried to combine the traditional machine learning method, i.e., the seven-point checklist, with three different backbones. Since the learning rate profoundly affects the model training, I used the cosine learning rate. Then, I also tried to use the hybrid model, combining convolutional neural networks (CNN) and transformer to train the dataset, and applied focal loss to balance the extremely unbalanced weight of the data.
+ 
+%\textbf{Conclusions:}
+In addition to high-quality data sets and high-performance computers being extremely important in the research and application of deep learning, the optimization of machine learning algorithms for skin lesions can be endless.
+\end{abstract}

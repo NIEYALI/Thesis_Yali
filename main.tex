@@ -1,0 +1,520 @@
+% TeX 
+%
+% Latex template for MIUN Licentiate/PhD thesis
+% Author: David Krapohl
+% Author: Winnie Wong
+\input glyphtounicode                                               % use unicode for pdf
+ \pdfgentounicode=1
+
+% original 10pt
+\documentclass[11pt,twoside,openright]{memoir}
+%showtrims
+\usepackage{mathtools, nccmath}
+\usepackage{fixltx2e}
+\usepackage{pdflscape}	
+\usepackage{multirow}
+\usepackage{amsmath}
+\usepackage{systeme}
+\usepackage{algorithm,algpseudocode}
+\DeclareMathOperator{\atantwo}{atan2}
+\DeclareMathOperator{\arctantwo}{arctan2}
+\DeclarePairedDelimiter{\nint}\lfloor\rceil
+\DeclarePairedDelimiter{\abs}\lvert\rvert
+
+\usepackage{array}
+\newcolumntype{C}[1]{>{\centering\let\\\tabularnewline\hspace{0pt}}m{#1}}
+
+%this package fixes some bugs in latex in case you have problems. I needed to use it in my thesis but don't remember for what
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage{etoolbox}
+
+\usepackage{xcolor,colortbl}
+\definecolor{dGray}{gray}{0.6}
+\definecolor{Gray}{gray}{0.8}
+\definecolor{Lightgrey}{gray}{0.95}
+
+\usepackage{color,soul}
+%\usepackage[ibycus,english,swedish]{babel}
+\usepackage[english,swedish]{babel}
+
+\usepackage{csquotes}
+\usepackage{nicefrac}
+
+\usepackage{svg}
+% -- Graphics & Fonts & Colors
+\usepackage{newpxtext,newpxmath}			% palatino (MIUN,serif)
+%\usepackage{amsmath, pxfonts}				% palatino math
+\usepackage{gillius}						% gill sans (MIUN, sans)
+%\usepackage{helvet}							% helvetica as sans font
+
+%\usepackage{textgreek}
+
+\usepackage[kerning=true,
+            tracking=true,
+            spacing=true,
+            factor=1100,
+            activate={true,nocompatibility},
+            final]{microtype}				% even grayvalue, less rivers, optical edges
+\SetTracking{encoding={*}, shape=sc}{40}	% nicer SC shape, less dense
+\linespread{1.05}
+
+\usepackage[toc,eqno]{tabfigures}	% set lining figures in tables
+
+\usepackage{makecell}
+\newcommand*{\myentry}[1]{\begin{tabular}{@{}c@{}}#1\end{tabular}}
+% \newcommand*{\thead}[1]{%
+% \multicolumn{1}{c}{\bfseries\begin{tabular}{@{}c@{}}#1\end{tabular}}}
+
+% \usepackage[usenames,dvipsnames,cmyk]{xcolor}
+%     % define MIUN colors
+%     \definecolor{hiddenLink}{rgb}{0,0,0}
+%     \definecolor{miunBlue}{cmyk}{1,0.34,0,0.2}
+%     \definecolor{miunYellow}{cmyk}{0,0.1,1,0}
+%     \definecolor{miunBlack}{cmyk}{0,0,0,1}
+%     \definecolor{miunLightGray}{cmyk}{0,0,0,0.11}
+%     \definecolor{miunDarkGray}{cmyk}{0.11,0.11,0,0.69}
+
+%\usepackage[pdftex]{graphicx}
+%\usepackage[citecolor=bule]{hyperref}
+
+\graphicspath{{./figures/}}
+\usepackage{graphicx}
+%\usepackage[clockwise]{rotating}
+% useful extensions
+\usepackage{makeidx}				
+
+%\usepackage{caption}                       % configure captions
+\usepackage{wrapfig}                        % wraps figure with text
+%\usepackage[printonlyused]{acronym}        % print list of acronyms
+
+\usepackage{booktabs}                       % beautify tables
+\usepackage{multirow}                       % multiple rows in tables
+\usepackage{siunitx}                        % make setting units fun and good looking 
+\usepackage[version=3]{mhchem}              % nicer isotopes
+
+\usepackage{adjustbox}
+
+\AtBeginEnvironment{tabular}{%
+    \figureversion{lf,tab}
+    \sisetup{text-rm={\figureversion{tab,lf}}}
+}
+    \sisetup{detect-weight=true, detect-family=true, detect-mode=true, tight-spacing=true} % Make siunitx detect font-face and weight
+
+
+\usepackage[caption=false,font=footnotesize]{subfig}
+    %\renewcommand{\arraystretch}{1}				  % more space in tables
+%\usepackage{rotating}
+\usepackage{longtable}
+\usepackage{tabu}
+%\usepackage{booktabs}
+\usepackage{threeparttable}
+\usepackage[figuresright]{rotating}
+
+\usepackage{enumitem}
+% redefine the description environment
+    \setlist[description]{%
+        %    topsep=30pt,               	% space before start / after end of list
+        %    itemsep=5pt,               	% space between items
+        font={\normalfont\scshape}, % set the label font
+        labelsep=\textwidth
+    }
+
+\usepackage{pdfpages}						% helps including pdf
+\usepackage{tikz}							% graph drawing
+\usepackage{pgfplots}						% plot in tikz
+\input{tikzstyles}
+%\tikzifexternalizing{% compile pgf only when it changes
+%% don't include package XYZ here
+%}{%
+%\usepackage{pdfpages}% helps including pdf
+%}%
+\usepackage{hyperref}						% links in pdf document
+\usepackage{tocloft}						%
+\usepackage[noabbrev]{cleveref}				% clever refences (ranges,...)
+%\usepackage{subcaption}
+%\usepackage[numbers,sort&compress]{natbib}
+%\biboptions{sort&compress}
+\usepackage{CJKutf8}
+
+\usepackage{lineno,hyperref}
+%\modulolinenumbers[5]
+\usepackage{breakurl}
+\usepackage{url}
+\Urlmuskip=0mu plus 20mu
+\def\UrlBreaks{\do\/\do-}
+\usepackage{nth}
+\usepackage{amsmath}
+\usepackage{algorithm}% http://ctan.org/pkg/algorithms
+\usepackage{algcompatible}
+\usepackage{booktabs, makecell, tabularx}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\usepackage{siunitx}
+\usepackage{array, makecell}
+\usepackage{blindtext}
+%\usepackage{graphicx}
+\usepackage{arydshln}
+%\usepackage[style=numeric-comp]{biblatex}
+%\usepackage[noadjust]{cite}
+%\usepackage{natbib}
+%\usepackage{everypage}
+% \usepackage{fontenc}
+% \usepackage{arabxetex} 
+
+% \usepackage{bidi}%has to be last package to be load
+% \newfontfamily\Kayhan[Script=Arabic]{XB Kayhan}
+% \newenvironment{Farsi}
+% {\begin{RTL}}
+% {\end{RTL}}
+%\setcode{utf8}
+%\usepackage{colortbl}
+%\usepackage[table]{xcolor}
+
+% Color settings for the pdf file
+    \hypersetup{
+        hidelinks,
+    %   backref=true,                       % bibliography links to text
+    % 	bookmarks=true,
+     	pdftitle={PDF title},
+    	pdfauthor={Author},          %<<----TODO: author
+    	colorlinks=false,                   % we use text colors
+    %	linkcolor=hiddenLink,               % color for links...
+    	citecolor=hiddenLink,
+    %	filecolor=link,
+    %	menucolor=hiddenLink,
+    %	urlcolor=hiddenLink,
+    	bookmarksnumbered=true,             %
+    	linkbordercolor=1. 1. 1.,           % frame around links->white
+    	urlbordercolor = 1. 1. 1.           % frame around urls->white 
+}
+
+% \usepackage[colorlinks,bookmarksopen,bookmarksnumbered,citecolor=blue, linkcolor=black, urlcolor=black]{hyperref}
+
+\usepackage[backend=biber,                  % configures bibliography, use biber
+                        %style=alphabetic,
+            style=numeric-comp,
+            maxcitenames=3,
+            maxbibnames=5,
+            sorting=none,
+            firstinits=true,
+            url=false,
+            isbn=false,
+            autolang=other
+            ]{biblatex}
+%    \appto{\bibsetup}{\raggedright}        
+    \DeclareSourcemap{% used for mapping language to hyphnation in bibtex 
+        \maps{
+            \map{
+                \step[fieldsource=language, fieldset=langid, origfieldval, final]
+                \step[fieldset=language, null]
+            }
+        }
+    }
+%}            
+%\bibliography{./backmatter/phd} %folder added by WW 02/05/12
+\bibliography{references.bib}
+
+%\usepackage[acronym]{glossaries}
+\usepackage[nonumberlist, acronym]{glossaries}
+%\usepackage[nomain,%
+%            nopostdot,%
+%            acronym,%
+%            toc,%
+%            nonumberlist,
+%            translate=babel]{glossaries}		% glossary package for acronyms
+\makeglossaries
+%\usepackage[acronym]{glossaries}
+
+
+%%% TEST/DRAFT packages, disable in final! ===================
+
+%\usepackage[l2tabu, orthodox]{nag}	% added 21/01/14 by DK
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{blindtext}
+%\usepackage{layouts}
+%%% Other Useful Packages (Added 02/05/12 by WW)
+
+%\usepackage{lineno} %add line numbers to draft copies
+%\linenumbers
+%\setpagewiselinenumbers
+
+%%% END TEST/DRAFT packages ==================================
+
+%\usepackage{mdwlist} % remove white space between lists
+
+
+% -- Layout ------------------------------------------------
+% .. page size .............................................
+\setstocksize{240mm}{169mm} % this is the real size
+\settrimmedsize{\stockheight}{\stockwidth}{*}
+
+% trimmarks (use for measuring when printing A4 paper)
+%\setstocksize{297mm}{210mm}
+%\trimFrame
+%\settrimmedsize{240mm}{170mm}{*}
+%\settrims{2cm}{2cm}
+
+\setbinding{5mm}
+\settypeblocksize{*}{115mm}{1.6} % davkra 2015-02-24
+% spine, edge, ratio
+\setlrmargins{20mm}{*}{*}
+% upper lower, ratio
+\setulmargins{*}{*}{1.2}
+
+
+% .. page layout ...........................................
+% .. headers and footers
+\makepagestyle{miunlic}
+\makeevenhead{miunlic}{\small\leftmark}{}{}
+\makeoddhead{miunlic}{}{}{\small\rightmark}
+\makeevenfoot{miunlic}{\small page | \thepage}{}{}
+\makeoddfoot{miunlic}{}{}{\small page | \thepage}
+
+\makeatletter % because of \@chapapp
+\makepsmarks {miunlic}{%
+  \nouppercaseheads
+  \createmark{chapter}{both}{shownumber}{\@chapapp\ }{. \ }
+  \createmark{section}{right}{shownumber}{}{. \ }
+  \createmark{subsection}{right}{shownumber}{}{. \ }
+   %TODO: decide subsub or subsection
+  \createplainmark {toc}{both} {\contentsname}
+  \createplainmark {lof}{both} {\listfigurename}
+  \createplainmark {lot}{both} {\listtablename}
+  \createplainmark {bib}{both} {\bibname}
+  \createplainmark {index}{both} {\indexname}
+  %\createplainmark {glossary}{both} {\glossaryname}
+}
+\makeatother
+
+% .. adjust plain style too
+\makeevenfoot{plain}{\small page | \thepage}{}{}
+\makeoddfoot {plain}{}{}{\small page | \thepage}
+
+% .. table of contents .....................................
+\renewcommand{\cftchapterfont}{\scshape}
+\renewcommand{\cftchapterpagefont}{\scshape}
+%\renewcommand{\cftsectiondotsep}{\cftnodots}
+
+% \maxtocdepth{subsubsection}
+% \settocdepth{subsubsection}
+
+% .. numbering depth
+\setsecnumdepth{subsection}
+\maxsecnumdepth{subsection}
+
+% .. numbering depth
+% \maxtocdepth{section}
+% \settocdepth{section}
+
+% \maxtocdepth{subsubsection}
+% \settocdepth{subsubsection}
+
+% .. text separators........................................
+% .. parts
+%\renewcommand{\partnamefont}{\LARGE}
+%\renewcommand{\partnumfont}{\scshape\LARGE}
+%\renewcommand{\parttitlefont}{\color{miunBlue}\scshape\huge}
+%\renewcommand{\cftpartfont}{\color{miunBlue}\scshape}
+%\renewcommand{\parttitlefont}{\scshape\huge} % minimize color usage 21/01/14 by DK
+%\renewcommand{\cftpartfont}{\scshape}
+%
+%\renewcommand{\cftpartpagefont}{\scshape}
+
+% .. chapter style
+\headstyles{bringhurst}
+%\chapterstyle{pedersen}
+%\chapterstyle{chappell}
+
+
+% these commands go into chapter titles
+\def\Vhrulefill{\leavevmode\leaders\hrule height 0.7ex depth \dimexpr0.4pt-0.7ex\hfill\kern0pt}
+
+\def\nbrcircles{100}%100! 247 377
+\def\outerradius{10mm} 
+\def\deviation {.9}
+%\def\fudge {.62}
+\def\fudge {.27}
+
+% the chapter style
+\makeatletter 
+\makechapterstyle{dots}{%
+    \chapterstyle{default}
+    \renewcommand*{\chapterheadstart}{}
+    \renewcommand*{\printchaptername}{%
+        \centerline{\parbox{0.5cm}{\Vhrulefill} \chapnumfont{\@chapapp\ \thechapter} \parbox{0.5cm}{\Vhrulefill}}}
+    \renewcommand*{\chapternamenum}{}
+    % \renewcommand*{\chapnumfont}{\normalfont\scshape\MakeTextLowercase}
+    \renewcommand*{\chapnumfont}{\normalfont\sffamily}
+    \renewcommand*{\printchapternum}{}
+    \renewcommand*{\afterchapternum}{\vspace{2mm}
+        %
+        %\par\centerline{\parbox{0.5in}{\hrulefill}}\par
+    }
+    \renewcommand*{\afterchaptertitle}{\par\nobreak\vskip0.5\midchapskip}
+    \renewcommand*{\printchapternonum}{%
+        \vphantom{\chapnumfont \@chapapp 1}\par
+        \parbox{0.5in}{}\par}
+    \renewcommand*{\chaptitlefont}{\normalfont\sffamily\Huge}
+    \renewcommand*{\printchaptertitle}[1]{%
+        \centering \chaptitlefont\MakeTextUppercase{##1}\\
+    }}
+\makeatother
+\chapterstyle{dots}
+
+% .. sections
+%\setsecheadstyle{\scshape\large}
+\setsecheadstyle{\large\sffamily}
+\setsubsecheadstyle{\itshape\sffamily}
+\setsubsubsecheadstyle{\itshape\sffamily\small}
+% .. captions
+\captionnamefont{\sffamily\footnotesize}
+\captiontitlefont{\sffamily\footnotesize}
+
+%\subcaptionlabelfont{\sffamily\footnotesizefd}
+%\subcaptionfont{\sffamily\footnotesize}
+%\changecaptionwidth
+%\captionwidth{0.75\textwidth}
+
+%\captionsetup[subfigure]{font={scriptsize,sf}}
+%\captionsetup[figure]{width=\textwidth}
+
+\setfloatadjustment{figure}{\centering}
+% finalize it!
+\checkandfixthelayout
+
+\input{commands}
+
+%\glsdefmain{main}
+%\makeglossaries
+%\input{./backmatter/glossary} %folder added by WW 02/05/12
+\input{./backmatter/acronyms} %folder added by WW 02/05/12
+
+
+%
+% \\\\\\\\\\\\\\\\\\\\\\ THE THESIS ////////////////////////
+%
+
+
+
+\pagestyle{miunlic}
+
+\begin{document}
+\begin{CJK*}{UTF8}{gbsn}
+% -- frontmatter -------------------------------------------
+\frontmatter
+% .. titles ................................................
+%todo remov in final
+%\listoftodos
+\input{./frontmatter/title}
+\newpage
+\thispagestyle{empty}
+\titleCC
+\input{./frontmatter/statement} %folder added by WW 02/05/12
+% .. dedication ............................................
+\cleardoublepage
+\null\vspace{\stretch{2}}
+\begin{flushright}
+	\input{./frontmatter/dedication} %folder added by WW 02/05/12
+\end{flushright}
+\vspace{\stretch{1}}\null
+
+% .. start english abstract ................................
+\selectlanguage{english}
+\abstractintoc
+\abstractnum
+
+\input{./frontmatter/en_abstract} %folder added by YN 10/12/22
+\clearpage
+
+% .. start swedish abstract ................................
+\selectlanguage{swedish}
+\abstractintoc
+
+\input{./frontmatter/sv_abstract} 
+\cleardoublepage
+%\clearpage
+
+% .. start toc,lof,lot .....................................
+\selectlanguage{english}
+\tableofcontents
+\clearpage
+\listoffigures
+\clearpage
+\listoftables
+%\clearpage %line added by WW 02/05/12
+\input{./frontmatter/listofpapers} %line added by WW 02/05/12
+\microtypesetup{protrusion=true}
+%\printglossary[style=long4colheader, title=Glossary]
+
+
+
+% .. start acknowledgment ..................................
+\input{./frontmatter/acknowledgment} %folder added by WW 12/12/22
+
+% -- start main content ------------------------------------
+\mainmatter
+
+% \renewcommand\thepart{\Alph{part}}
+% \part{Thesis Summary}
+\renewcommand\thepart{\Alph{part}}
+\part{Thesis Summary}
+% \cleardoublepage\part{Thesis Summary}
+
+%\titlecontents{section}[3.8em]
+
+
+\input{./chapters/introduction} %folder added by DK 02/09/14
+\input{./chapters/theory}
+\input{./chapters/method}
+\input{./chapters/results} %folder added by WW 02/05/12
+\input{./chapters/conclusion}
+
+%
+
+% -- start the final content -------------------------------
+%\backmatter
+
+\glsaddall
+
+\printglossary[style=list, type=\acronymtype, title=Acronyms]
+\printglossary
+
+%\bibliographystyle{alpha} % Alpha-style
+%\bibliographystyle{unsrt}% Vancouver style
+
+\printbibliography
+%\bibintoc
+
+%\addtocontents{toc}{\protect\setcounter{tocdepth}{1}}
+%\renewcommand\thepart{\Alph{part}}
+
+%\renewcommand\thepart{\Alph{part}}
+\part{Supporting papers}
+%\part{VOLUME I \\
+ %      PERSONAL MEMOIRS OF  U.\ S.\ GRANT}
+
+ 
+\input{./papers/paper1}
+\input{./papers/paper2}
+\input{./papers/paper3}
+\input{./papers/paper4}
+\input{./papers/paper5}
+\input{./papers/paper6}
+
+\end{CJK*}
+\end{document}
+
+% Alternate way of implementing bibliography (Added 02/05/12 by WW)
+%comment out previous four lines and use instead;
+
+% \bibliographystyle{ieeetr} %these three lines can be placed here
+% \renewcommand \bibname{references}
+% \bibliography{references.bib}
+% %For help on syntax in the .bib file, go to http://en.wikibooks.org/wiki/LaTeX/Bibliography_Management
+
+%Mendeley can be used to manage bib files!
+% there is a bash script to update these from Mendeley
+
+% //////////////////////// THE END \\\\\\\\\\\\\\\\\\\\\\\\ 

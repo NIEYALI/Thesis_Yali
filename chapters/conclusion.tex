@@ -1,0 +1,19 @@
+
+\chapter{Conclusion and outlook} \label{ch:conclusion}
+
+In this thesis, I aimed to classify skin lesions using deep learning training on dermoscopic images.  
+   
+
+\section{Conclusion}
+CAD-assisted dermatologists are a trend of the future. Deep learning displays a high performance as a state-of-the-art skin lesion classifier. The goal of our project was to implement the classification of dermoscopic images using deep learning algorithms. The developed end-to-end algorithm makes such classification more accurate. In this work, various deep learning backbones are used. I mainly studied the imbalance among multiple classes in a big dataset and how to improve performance when using a small dataset. Performance can be enhanced through combinations of ResNet-50 and transformer features from our work. I discovered the pros and cons of these approaches in our research. 
+
+In this thesis, I emphasized the use of small skin lesion datasets with deep learning and introduced two basic methods of transfer learning and data augmentation, as well as GAN. Sampling and loss functions are available to tackle the issues of imbalanced datasets. I also compared the ensemble model with the hybrid model. Additionally, I also discussed some of the challenges still facing in the classification of dermatology. For example, it is difficult to compare different classification methods because some researchers use nonpublic datasets for training and testing, thereby making reproducibility difficult. Deep learning should also learn to abstract from different skin colors. 
+
+The scope of this thesis is to classify skin cancer using deep learning. Our experimental results show that for small datasets, when Yolo or the traditional K-fold machine learning method is combined with deep learning, rather good performance can also be obtained. Our other contribution is changing the network structure of deep learning to enrich the scope of the feature extractors. For example, using the hybrid model can also improve accuracy. Improving accuracy includes choosing a more appropriate learning rate such as a cosine cyclical learning rate, which also makes the model training perform better. When there are multiple categories, it is easy to have an imbalance between category data. The imbalance issue is also discussed in our thesis, such as the effective method of focal loss. Another contribution I have made is the study of more than 200 high-quality literature on deep learning approaches toward skin lesion classification with dermoscopic images in recent years. This leads to a more accurate understanding of the current state of research and the challenges of future research.
+
+Overall, I established efficient deep learning systems that can classify and evaluate skin lesions images to determine whether they are malignant or benign. Our methods can help us better understand dermoscopic images, find practical solutions for dermatologists, and develop automatic diagnostic technology for skin disease patients. The following suggests useful directions for future research.
+
+\section{Outlook} \label{sec:fw}
+ 
+This work could be extended to some other imaging modalities. The main objective is to overcome the issue of data scarcity in the field of deep learning, which was resolved here using the proposed models. Therefore, any imaging domain facing similar issues could be suitable for the application of the proposed ideas. To improve the performance of DL in the diagnosis of skin disease, additional images with standardized diagnostics should be collected. Transformers remain a very promising approach, and more research could improve their applications in the future. More powerful computer computing resources are also essential for ongoing computer vision research.
+
