@@ -8,6 +8,6 @@ This template is provided as is. It is not the official MIUN template nor is it 
 
 ### How do I get set up? ###
 
-* get it with "git clone git@bitbucket.org:dkrapohl/thesis_template.git"
+* get it with "git clone git@github.com:NIEYALI/Thesis_Yali.git"
 
 ### Contribution guidelines ###
