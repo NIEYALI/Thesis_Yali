@@ -4,7 +4,7 @@ This template is provided as is. It is not the official MIUN template nor is it 
 
 ### What is this repository for? ###
 
-* PhD/Licentiate template in Electronics Design Department
+* PhD/Licentiate template in Department Computer and Electrical Engineering (DET)
 
 ### How do I get set up? ###
 
